@@ -3,7 +3,7 @@ public class Order{
     private int orderID;
     private double total;
     private boolean isDone;
-    private ArrayList<MenuItem> items = new ArrayList<>();
+    private ArrayList<MenuItemR> items = new ArrayList<>();
 
     public Order(){
         this.orderID = 000000;
@@ -25,13 +25,13 @@ public class Order{
         this.orderID = orderID;
     }
 
-    public void addItems(MenuItem item){
+    public void addItems(MenuItemR item){
         items.add(item);
         total += item.getPrice();
     }
 
     public void getItems(){
-        for(MenuItem item : items){
+        for(MenuItemR item : items){
             System.out.println(item.getItem() + " - $" + item.getPrice());
         }
     }

@@ -5,37 +5,37 @@ import java.util.Scanner;
 import java.util.List;
 public class MenuSystem {
     //collection of methods to fill out each menu item with the items given
-     public static List<MenuItem> createAppMenu(){
+     public static List<MenuItemR> createAppMenu(){
         //create a list and the current item
-        List<MenuItem> menu = new ArrayList<>();
-        MenuItem currentItem;
+        List<MenuItemR> menu = new ArrayList<>();
+        MenuItemR currentItem;
         //go through the entire appetizers, create a menu item for each one, and put it into the menu
-        currentItem = new MenuItem("Chicken Nachos", 8.50f, "Pulled chicken, spicy white cheese sauce, & cheddar cheese topped with red onions & cilantro. Add BBQ sauce (+0.50)");
+        currentItem = new MenuItemR("Chicken Nachos", 8.50f, "Pulled chicken, spicy white cheese sauce, & cheddar cheese topped with red onions & cilantro. Add BBQ sauce (+0.50)");
         menu.add(currentItem);
-        currentItem = new MenuItem("Pork Nachos", 8.50f, "Pulled pork, spicy white cheese sauce, & pepper jack cheese topped with tomato, Scallions & cilantro, Add BBQ sauce (+0.50)");
+        currentItem = new MenuItemR("Pork Nachos", 8.50f, "Pulled pork, spicy white cheese sauce, & pepper jack cheese topped with tomato, Scallions & cilantro, Add BBQ sauce (+0.50)");
         menu.add(currentItem);
-        currentItem = new MenuItem("Pork or Chicken Sliders", "3 for $5.00", "Sauces: Chipotle, Jim Beam or Carolina Gold BBQ");
+        currentItem = new MenuItemR("Pork or Chicken Sliders", "3 for $5.00", "Sauces: Chipotle, Jim Beam or Carolina Gold BBQ");
         menu.add(currentItem);
-        currentItem = new MenuItem("Catfish Bites", 6.50f, "Catfish pieces cornmeal-battered & fried. Served with lemon & spicy cocktail sauce");
+        currentItem = new MenuItemR("Catfish Bites", 6.50f, "Catfish pieces cornmeal-battered & fried. Served with lemon & spicy cocktail sauce");
         menu.add(currentItem);
-        currentItem = new MenuItem("Fried Veggies", 6.50f, "Choice of okra, zucchini, squash, or Mix & Match. Served with a side of spicy ranch");
+        currentItem = new MenuItemR("Fried Veggies", 6.50f, "Choice of okra, zucchini, squash, or Mix & Match. Served with a side of spicy ranch");
         menu.add(currentItem);
          //return the finished menu back into main method
         return menu;
 
     }
 
-    public static List<MenuItem> createSalMenu(){
-        List<MenuItem> menu = new ArrayList<>();
-        MenuItem currentItem;
+    public static List<MenuItemR> createSalMenu(){
+        List<MenuItemR> menu = new ArrayList<>();
+        MenuItemR currentItem;
         //go through the entire appetizers, create a menu item for each one, and put it into the menu
-        currentItem = new MenuItem("House Salad", 7.50f, "Mixed Greens, topped with bacon, tomato & blue cheese crumbles");
+        currentItem = new MenuItemR("House Salad", 7.50f, "Mixed Greens, topped with bacon, tomato & blue cheese crumbles");
         menu.add(currentItem);
-        currentItem = new MenuItem("Wedge Salad", 7.50f, "Iceberg lettuce wedge topped with bacon, tomato & blue cheese crumbles");
+        currentItem = new MenuItemR("Wedge Salad", 7.50f, "Iceberg lettuce wedge topped with bacon, tomato & blue cheese crumbles");
         menu.add(currentItem);
-        currentItem = new MenuItem("Caesar Salad", 7.50f, "Romaine lettuce, shredded Parmesan cheese & croutons tossed in Caesar dressing");
+        currentItem = new MenuItemR("Caesar Salad", 7.50f, "Romaine lettuce, shredded Parmesan cheese & croutons tossed in Caesar dressing");
         menu.add(currentItem);
-        currentItem = new MenuItem("Sweet Potato Chicken Salad", 11.50f, "Mixed greens, red onion, dried cranberries & goat cheese crumbles topped with chilled sweet potato crusted chicken");
+        currentItem = new MenuItemR("Sweet Potato Chicken Salad", 11.50f, "Mixed greens, red onion, dried cranberries & goat cheese crumbles topped with chilled sweet potato crusted chicken");
         menu.add(currentItem);
 
 
@@ -45,27 +45,27 @@ public class MenuSystem {
 
 
 
-    public static List<MenuItem> createEntMenu(){
-        List<MenuItem> menu = new ArrayList<>();
-        MenuItem currentItem;
+    public static List<MenuItemR> createEntMenu(){
+        List<MenuItemR> menu = new ArrayList<>();
+        MenuItemR currentItem;
 
-        currentItem = new MenuItem("Shrimp & Grits", 13.50f, "Sautéed shrimp with garlic served on top of cheese grits, topped with sautéed peppers & onions");
+        currentItem = new MenuItemR("Shrimp & Grits", 13.50f, "Sautéed shrimp with garlic served on top of cheese grits, topped with sautéed peppers & onions");
         menu.add(currentItem);
-        currentItem = new MenuItem("Sweet Tea Fried Chicken", 11.50f, "Fried chicken breast marinated in sweet tea & spices, topped with a sweet tea reduction");
+        currentItem = new MenuItemR("Sweet Tea Fried Chicken", 11.50f, "Fried chicken breast marinated in sweet tea & spices, topped with a sweet tea reduction");
         menu.add(currentItem);
-        currentItem = new MenuItem("Caribbean Chicken", 11.50f, "Grilled chicken marinated in spicy Caribbean seasoning topped with mango salsa & avocado");
+        currentItem = new MenuItemR("Caribbean Chicken", 11.50f, "Grilled chicken marinated in spicy Caribbean seasoning topped with mango salsa & avocado");
         menu.add(currentItem);
-        currentItem = new MenuItem("Grilled Pork Chops", 11.00f, "Two bone-in grilled pork chops");
+        currentItem = new MenuItemR("Grilled Pork Chops", 11.00f, "Two bone-in grilled pork chops");
         menu.add(currentItem);
-        currentItem = new MenuItem("New York Strip Steak", 17.00f, "New York Strip Steak cut in-house. Cooked to your desired temperature");
+        currentItem = new MenuItemR("New York Strip Steak", 17.00f, "New York Strip Steak cut in-house. Cooked to your desired temperature");
         menu.add(currentItem);
-        currentItem = new MenuItem("Seared Tuna", 15.00f, "Seared ahi tuna cooked to your desired temperature, topped with mango salsa & a honey lime vinaigrette drizzle");
+        currentItem = new MenuItemR("Seared Tuna", 15.00f, "Seared ahi tuna cooked to your desired temperature, topped with mango salsa & a honey lime vinaigrette drizzle");
         menu.add(currentItem);
-        currentItem = new MenuItem("Captain Crunch Chicken Tenders", 11.50f, "Fried chicken tenders coated in Captain Crunch with a dipping sauce");
+        currentItem = new MenuItemR("Captain Crunch Chicken Tenders", 11.50f, "Fried chicken tenders coated in Captain Crunch with a dipping sauce");
         menu.add(currentItem);
-        currentItem = new MenuItem("Shock Top Grouper Fingers", 11.50f, "Shock Top beer-battered grouper served with tartar sauce & a lemon extra");
+        currentItem = new MenuItemR("Shock Top Grouper Fingers", 11.50f, "Shock Top beer-battered grouper served with tartar sauce & a lemon extra");
         menu.add(currentItem);
-        currentItem = new MenuItem("Mac & Cheese Bar", 8.50f, "Cast iron skillet of mac & cheese with choice of regular cheese or spicy cheese & choice of two toppings");
+        currentItem = new MenuItemR("Mac & Cheese Bar", 8.50f, "Cast iron skillet of mac & cheese with choice of regular cheese or spicy cheese & choice of two toppings");
         menu.add(currentItem);
 
 
@@ -94,86 +94,86 @@ public class MenuSystem {
 
     }
 
-    public static List<MenuItem> createSidMenu(){
-        List<MenuItem> menu = new ArrayList<>();
-        MenuItem currentItem;
+    public static List<MenuItemR> createSidMenu(){
+        List<MenuItemR> menu = new ArrayList<>();
+        MenuItemR currentItem;
 
-        currentItem = new MenuItem("Curly Fries", 2.50f);
+        currentItem = new MenuItemR("Curly Fries", 2.50f);
         menu.add(currentItem);
-        currentItem = new MenuItem("Wing Chips", 2.50f);
+        currentItem = new MenuItemR("Wing Chips", 2.50f);
         menu.add(currentItem);
-        currentItem = new MenuItem("Sweet Potato Fries", 2.50f);
+        currentItem = new MenuItemR("Sweet Potato Fries", 2.50f);
         menu.add(currentItem);
-        currentItem = new MenuItem("Creamy Cabbage Slaw", 2.50f);
+        currentItem = new MenuItemR("Creamy Cabbage Slaw", 2.50f);
         menu.add(currentItem);
-        currentItem = new MenuItem("Adluh Cheese Grits", 2.50f);
+        currentItem = new MenuItemR("Adluh Cheese Grits", 2.50f);
         menu.add(currentItem);
-        currentItem = new MenuItem("Mashed Potatoes", 2.50f);
+        currentItem = new MenuItemR("Mashed Potatoes", 2.50f);
         menu.add(currentItem);
-        currentItem = new MenuItem("Mac & Cheese", 2.50f);
+        currentItem = new MenuItemR("Mac & Cheese", 2.50f);
         menu.add(currentItem);
-        currentItem = new MenuItem("Seasonal Vegetables", 2.50f);
+        currentItem = new MenuItemR("Seasonal Vegetables", 2.50f);
         menu.add(currentItem);
-        currentItem = new MenuItem("Baked BeansA", 2.50f);
-        menu.add(currentItem);
-
-        return menu;
-
-    }
-
-    public static List<MenuItem> createSanMenu(){
-        List<MenuItem> menu = new ArrayList<>();
-        MenuItem currentItem;
-
-        currentItem = new MenuItem("Grilled Cheese", 5.50f, "American cheese served on multigrain or white bread");
-        menu.add(currentItem);
-        currentItem = new MenuItem("Chicken BLT&A", 10.00f, "Grilled chicken, bacon, lettuce, tomato & avocado on a pretzel bun");
-        menu.add(currentItem);
-        currentItem = new MenuItem("Philly", 13.50f, "Choice of shaved New York Strip steak or grilled chicken topped with mushrooms, peppers, onions & provolone cheese on a hoagie");
-        menu.add(currentItem);
-        currentItem = new MenuItem("Club", 10.00f, "Ham, turkey, Swiss cheddar, lettuce, tomato, mayo & bacon on multigrain bread");
-        menu.add(currentItem);
-        currentItem = new MenuItem("Meatball Sub", 10.00f, "House-made meatballs topped with marinara & mozzarella cheese. Sautéed pepper & onions on request");
-        menu.add(currentItem);
-
-
-        return menu;
-
-    }
-
-    public static List<MenuItem> createBurMenu(){
-        List<MenuItem> menu = new ArrayList<>();
-        MenuItem currentItem;
-
-        currentItem = new MenuItem("Bacon Cheeseburger", 11.00f, "8-ounce burger topped with bacon & your choice of cheddar, American, Swiss, provolone, pepper jack, blue cheese, or pimento cheese on a brioche bun");
-        menu.add(currentItem);
-        currentItem = new MenuItem("Carolina Burger", 11.00f, "8-ounce burger topped with chili, diced onions & slaw on a brioche bun.");
-        menu.add(currentItem);
-        currentItem = new MenuItem("Portobello Burger (V)", 8.50f, "Marinated Portobello mushroom cap topped with mango salsa, lettuce, tomato & onion on a telera bun");
-        menu.add(currentItem);
-        currentItem = new MenuItem("Vegan Boca Burger (V)", 10.50f, "Vegan Boca Burger topped with lettuce, tomato & onion on a telera bun");
+        currentItem = new MenuItemR("Baked BeansA", 2.50f);
         menu.add(currentItem);
 
         return menu;
 
     }
 
-    public static List<MenuItem> createBevMenu(){
-        List<MenuItem> menu = new ArrayList<>();
-        MenuItem currentItem;
+    public static List<MenuItemR> createSanMenu(){
+        List<MenuItemR> menu = new ArrayList<>();
+        MenuItemR currentItem;
+
+        currentItem = new MenuItemR("Grilled Cheese", 5.50f, "American cheese served on multigrain or white bread");
+        menu.add(currentItem);
+        currentItem = new MenuItemR("Chicken BLT&A", 10.00f, "Grilled chicken, bacon, lettuce, tomato & avocado on a pretzel bun");
+        menu.add(currentItem);
+        currentItem = new MenuItemR("Philly", 13.50f, "Choice of shaved New York Strip steak or grilled chicken topped with mushrooms, peppers, onions & provolone cheese on a hoagie");
+        menu.add(currentItem);
+        currentItem = new MenuItemR("Club", 10.00f, "Ham, turkey, Swiss cheddar, lettuce, tomato, mayo & bacon on multigrain bread");
+        menu.add(currentItem);
+        currentItem = new MenuItemR("Meatball Sub", 10.00f, "House-made meatballs topped with marinara & mozzarella cheese. Sautéed pepper & onions on request");
+        menu.add(currentItem);
 
 
-        currentItem = new MenuItem("Sweet / Unsweetened Tea", 2.00f);
+        return menu;
+
+    }
+
+    public static List<MenuItemR> createBurMenu(){
+        List<MenuItemR> menu = new ArrayList<>();
+        MenuItemR currentItem;
+
+        currentItem = new MenuItemR("Bacon Cheeseburger", 11.00f, "8-ounce burger topped with bacon & your choice of cheddar, American, Swiss, provolone, pepper jack, blue cheese, or pimento cheese on a brioche bun");
         menu.add(currentItem);
-        currentItem = new MenuItem("Coke / Diet Coke", 2.00f);
+        currentItem = new MenuItemR("Carolina Burger", 11.00f, "8-ounce burger topped with chili, diced onions & slaw on a brioche bun.");
         menu.add(currentItem);
-        currentItem = new MenuItem("Sprite", 2.00f);
+        currentItem = new MenuItemR("Portobello Burger (V)", 8.50f, "Marinated Portobello mushroom cap topped with mango salsa, lettuce, tomato & onion on a telera bun");
         menu.add(currentItem);
-        currentItem = new MenuItem("Bottled Water", 2.00f);
+        currentItem = new MenuItemR("Vegan Boca Burger (V)", 10.50f, "Vegan Boca Burger topped with lettuce, tomato & onion on a telera bun");
         menu.add(currentItem);
-        currentItem = new MenuItem("Lemonade", 2.00f);
+
+        return menu;
+
+    }
+
+    public static List<MenuItemR> createBevMenu(){
+        List<MenuItemR> menu = new ArrayList<>();
+        MenuItemR currentItem;
+
+
+        currentItem = new MenuItemR("Sweet / Unsweetened Tea", 2.00f);
         menu.add(currentItem);
-        currentItem = new MenuItem("Orange Juice", 2.00f);
+        currentItem = new MenuItemR("Coke / Diet Coke", 2.00f);
+        menu.add(currentItem);
+        currentItem = new MenuItemR("Sprite", 2.00f);
+        menu.add(currentItem);
+        currentItem = new MenuItemR("Bottled Water", 2.00f);
+        menu.add(currentItem);
+        currentItem = new MenuItemR("Lemonade", 2.00f);
+        menu.add(currentItem);
+        currentItem = new MenuItemR("Orange Juice", 2.00f);
         menu.add(currentItem);
 
 
@@ -195,15 +195,15 @@ public class MenuSystem {
         //create scanner
         Scanner scan = new Scanner(System.in);
         //create the lists for each menu items and type, and the current menu item
-        List<MenuItem> menuApp = new ArrayList<>();
-        List<MenuItem> menuSal = new ArrayList<>();
-        List<MenuItem> menuEnt = new ArrayList<>();
+        List<MenuItemR> menuApp = new ArrayList<>();
+        List<MenuItemR> menuSal = new ArrayList<>();
+        List<MenuItemR> menuEnt = new ArrayList<>();
         List<String> menuTop = new ArrayList<>();
-        List<MenuItem> menuSid = new ArrayList<>();
-        List<MenuItem> menuSan = new ArrayList<>();
-        List<MenuItem> menuBur = new ArrayList<>();
-        List<MenuItem> menuBev = new ArrayList<>();
-        MenuItem currentItem;
+        List<MenuItemR> menuSid = new ArrayList<>();
+        List<MenuItemR> menuSan = new ArrayList<>();
+        List<MenuItemR> menuBur = new ArrayList<>();
+        List<MenuItemR> menuBev = new ArrayList<>();
+        MenuItemR currentItem;
         int button = -1;
         //variables for creating and editing menu items
         String foodName;
@@ -301,7 +301,7 @@ public class MenuSystem {
                             price = Float.parseFloat(scan.nextLine());
                             System.out.print("Please enter a description for "+foodName+": ");
                             description = scan.nextLine();
-                            currentItem = new MenuItem(foodName, price, description);
+                            currentItem = new MenuItemR(foodName, price, description);
                             menuSal.add(currentItem);
                             System.out.println("Salad added");
                         } else if (button == 3) { //entrees are name, price and desc
@@ -311,7 +311,7 @@ public class MenuSystem {
                             price = Float.parseFloat(scan.nextLine());
                             System.out.print("Please enter a description for "+foodName+": ");
                             description = scan.nextLine();
-                            currentItem = new MenuItem(foodName, price, description);
+                            currentItem = new MenuItemR(foodName, price, description);
                             menuEnt.add(currentItem);
                             System.out.println("Entree added");
                         } else if (button == 4) { //toppings are just name
@@ -325,7 +325,7 @@ public class MenuSystem {
                             System.out.print("Please enter the price of "+foodName+": $");
                             price = Float.parseFloat(scan.nextLine());
 
-                            currentItem = new MenuItem(foodName, price);
+                            currentItem = new MenuItemR(foodName, price);
                             menuSid.add(currentItem);
                             System.out.println("Side added");
                         } else if (button == 6) {//sadwitches name price and desc
@@ -335,7 +335,7 @@ public class MenuSystem {
                             price = Float.parseFloat(scan.nextLine());
                             System.out.print("Please enter a description for "+foodName+": ");
                             description = scan.nextLine();
-                            currentItem = new MenuItem(foodName, price, description);
+                            currentItem = new MenuItemR(foodName, price, description);
                             menuSan.add(currentItem);
                             System.out.println("Sandwich added");
                         } else if (button == 7) {// burgers are name, price and desc
@@ -345,7 +345,7 @@ public class MenuSystem {
                             price = Float.parseFloat(scan.nextLine());
                             System.out.print("Please enter a description for "+foodName+": ");
                             description = scan.nextLine();
-                            currentItem = new MenuItem(foodName, price, description);
+                            currentItem = new MenuItemR(foodName, price, description);
                             menuBur.add(currentItem);
                             System.out.println("Burger added");
                         } else if (button == 8) {// beverages are name and price
@@ -353,7 +353,7 @@ public class MenuSystem {
                             foodName = scan.nextLine();
                             System.out.print("Please enter the price of "+foodName+": $");
                             price = Float.parseFloat(scan.nextLine());
-                            currentItem = new MenuItem(foodName, price);
+                            currentItem = new MenuItemR(foodName, price);
                             menuBev.add(currentItem);
                             System.out.println("Beverage added");
                         } else if (button == 9) {

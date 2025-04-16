@@ -1,4 +1,4 @@
-public class MenuItem {
+public class MenuItemR {
 
     String name;
     String priceMult; //created a string price for deals where multiple items can be sold for one price. ie "2 for $1"
@@ -6,7 +6,7 @@ public class MenuItem {
     float price;
 
     //constructor for appetizers, salads, entrees, sandwiches, and burgers
-    MenuItem(String name, String price, String description){
+    MenuItemR(String name, String price, String description){
         this.name = name;
         this.priceMult = price;
         this.description = description;
@@ -14,7 +14,7 @@ public class MenuItem {
     }
 
     //constructor for appetizers, salads, entrees, sandwiches, and burgers
-    MenuItem(String name, float price, String description){
+    MenuItemR(String name, float price, String description){
         this.name = name;
         this.price = price;
         this.description = description;
@@ -22,7 +22,7 @@ public class MenuItem {
     }
 
     //constructor for sides and drinks
-    MenuItem(String name, float price){
+    MenuItemR(String name, float price){
         this.name = name;
         this.price = price;
     }

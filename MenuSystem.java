@@ -31,14 +31,14 @@ public class MenuSystem {
 
     //constructor
     MenuSystem() {
-        List<MenuItemR> menuApp = new ArrayList<>();
-        List<MenuItemR> menuSal = new ArrayList<>();
-        List<MenuItemR> menuEnt = new ArrayList<>();
-        List<String> menuTop = new ArrayList<>();
-        List<MenuItemR> menuSid = new ArrayList<>();
-        List<MenuItemR> menuSan = new ArrayList<>();
-        List<MenuItemR> menuBur = new ArrayList<>();
-        List<MenuItemR> menuBev = new ArrayList<>();
+         this.menuApp = new ArrayList<>();
+        this.menuSal = new ArrayList<>();
+        this.menuEnt = new ArrayList<>();
+        this.menuTop = new ArrayList<>();
+        this.menuSid = new ArrayList<>();
+        this.menuSan = new ArrayList<>();
+        this.menuBur = new ArrayList<>();
+        this.menuBev = new ArrayList<>();
 
         createMenus();
 
@@ -931,7 +931,7 @@ public class MenuSystem {
             }
 
         } while (true);
-        
+
 
     }
 

@@ -4,8 +4,49 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.List;
 public class MenuSystem {
+
+
+    Scanner scan = new Scanner(System.in);
+
+
+    //create the lists for each menu items and type, and the current menu item
+    List<MenuItemR> menuApp = new ArrayList<>();
+    List<MenuItemR> menuSal = new ArrayList<>();
+    List<MenuItemR> menuEnt = new ArrayList<>();
+    List<String> menuTop = new ArrayList<>();
+    List<MenuItemR> menuSid = new ArrayList<>();
+    List<MenuItemR> menuSan = new ArrayList<>();
+    List<MenuItemR> menuBur = new ArrayList<>();
+    List<MenuItemR> menuBev = new ArrayList<>();
+    MenuItemR currentItem;
+
+
+    int button = -1;
+    //variables for creating and editing menu items
+    String foodName;
+    String description;
+    float price;
+    int index;
+
+
+    //constructor
+    MenuSystem() {
+        List<MenuItemR> menuApp = new ArrayList<>();
+        List<MenuItemR> menuSal = new ArrayList<>();
+        List<MenuItemR> menuEnt = new ArrayList<>();
+        List<String> menuTop = new ArrayList<>();
+        List<MenuItemR> menuSid = new ArrayList<>();
+        List<MenuItemR> menuSan = new ArrayList<>();
+        List<MenuItemR> menuBur = new ArrayList<>();
+        List<MenuItemR> menuBev = new ArrayList<>();
+
+        createMenus();
+
+    }
+
+
     //collection of methods to fill out each menu item with the items given
-     public static List<MenuItemR> createAppMenu(){
+    public static List<MenuItemR> createAppMenu() {
         //create a list and the current item
         List<MenuItemR> menu = new ArrayList<>();
         MenuItemR currentItem;
@@ -20,12 +61,12 @@ public class MenuSystem {
         menu.add(currentItem);
         currentItem = new MenuItemR("Fried Veggies", 6.50f, "Choice of okra, zucchini, squash, or Mix & Match. Served with a side of spicy ranch");
         menu.add(currentItem);
-         //return the finished menu back into main method
+        //return the finished menu back into main method
         return menu;
 
     }
 
-    public static List<MenuItemR> createSalMenu(){
+    public static List<MenuItemR> createSalMenu() {
         List<MenuItemR> menu = new ArrayList<>();
         MenuItemR currentItem;
         //go through the entire appetizers, create a menu item for each one, and put it into the menu
@@ -44,8 +85,7 @@ public class MenuSystem {
     }
 
 
-
-    public static List<MenuItemR> createEntMenu(){
+    public static List<MenuItemR> createEntMenu() {
         List<MenuItemR> menu = new ArrayList<>();
         MenuItemR currentItem;
 
@@ -73,7 +113,7 @@ public class MenuSystem {
 
     }
 
-    public static  List<String> createTopMenu(){
+    public static List<String> createTopMenu() {
         List<String> menu = new ArrayList<>();
 
 
@@ -94,7 +134,7 @@ public class MenuSystem {
 
     }
 
-    public static List<MenuItemR> createSidMenu(){
+    public static List<MenuItemR> createSidMenu() {
         List<MenuItemR> menu = new ArrayList<>();
         MenuItemR currentItem;
 
@@ -121,7 +161,7 @@ public class MenuSystem {
 
     }
 
-    public static List<MenuItemR> createSanMenu(){
+    public static List<MenuItemR> createSanMenu() {
         List<MenuItemR> menu = new ArrayList<>();
         MenuItemR currentItem;
 
@@ -141,7 +181,7 @@ public class MenuSystem {
 
     }
 
-    public static List<MenuItemR> createBurMenu(){
+    public static List<MenuItemR> createBurMenu() {
         List<MenuItemR> menu = new ArrayList<>();
         MenuItemR currentItem;
 
@@ -158,7 +198,7 @@ public class MenuSystem {
 
     }
 
-    public static List<MenuItemR> createBevMenu(){
+    public static List<MenuItemR> createBevMenu() {
         List<MenuItemR> menu = new ArrayList<>();
         MenuItemR currentItem;
 
@@ -183,35 +223,55 @@ public class MenuSystem {
 
 
     //make a print method for any type of list given
-    public static <E> void printMenu (List<E> menu){
-         int index = 0;
-         for (E item : menu){
-             System.out.println(index +") "+item);
-             index++;
-         }
+    public static <E> void printMenu(List<E> menu) {
+        int index = 0;
+        for (E item : menu) {
+            System.out.println(index + ") " + item);
+            index++;
+        }
     }
 
-    public static void main(String[] args) {
-        //create scanner
-        Scanner scan = new Scanner(System.in);
-        //create the lists for each menu items and type, and the current menu item
-        List<MenuItemR> menuApp = new ArrayList<>();
-        List<MenuItemR> menuSal = new ArrayList<>();
-        List<MenuItemR> menuEnt = new ArrayList<>();
-        List<String> menuTop = new ArrayList<>();
-        List<MenuItemR> menuSid = new ArrayList<>();
-        List<MenuItemR> menuSan = new ArrayList<>();
-        List<MenuItemR> menuBur = new ArrayList<>();
-        List<MenuItemR> menuBev = new ArrayList<>();
-        MenuItemR currentItem;
-        int button = -1;
-        //variables for creating and editing menu items
-        String foodName;
-        String description;
-        float price;
-        int index;
+
+    public void printAll() {
+        //print each of the menu items by type
+        System.out.println("Appetizers");
+        System.out.println();
+        printMenu(menuApp);
+        System.out.println();
+        System.out.println("Salads");
+        System.out.println();
+        printMenu(menuSal);
+        System.out.println();
+        System.out.println("Entrees");
+        System.out.println("All entrees served with 2 sides");
+        System.out.println();
+        printMenu(menuEnt);
+        System.out.println();
+        System.out.println("Toppings");
+        System.out.println();
+        printMenu(menuTop);
+        System.out.println();
+        System.out.println("Sides");
+        System.out.println();
+        printMenu(menuSid);
+        System.out.println();
+        System.out.println("Sandwiches");
+        System.out.println();
+        printMenu(menuSan);
+        System.out.println();
+        System.out.println("Burgers");
+        System.out.println();
+        printMenu(menuBur);
+        System.out.println();
+        System.out.println("Beverages");
+        System.out.println();
+        printMenu(menuBev);
+        System.out.println();
+
+    }
 
 
+    public void createMenus() {
         //import all the menus
         menuApp = createAppMenu();
         menuSal = createSalMenu();
@@ -221,624 +281,660 @@ public class MenuSystem {
         menuSan = createSanMenu();
         menuBur = createBurMenu();
         menuBev = createBevMenu();
+    }
 
+    //add new items to the menu
+    public void addItemstoMenus() {
         do {
-            try {
-
-                button = -1;
-
-
-                System.out.println("Menu System");
-                System.out.println("1) View Menu");
-                System.out.println("2) Add Item");
-                System.out.println("3) Remove Item");
-                System.out.println("4) Edit Item");
-                System.out.println("5) Close");
-
-                //parse to int to fix a bug when using nextInt
-                button = Integer.parseInt(scan.nextLine());
-
-                if (button == 1){
-                    //print each of the menu items by type
-                    System.out.println("Appetizers");
-                    System.out.println();
-                    printMenu(menuApp);
-                    System.out.println();
-                    System.out.println("Salads");
-                    System.out.println();
-                    printMenu(menuSal);
-                    System.out.println();
-                    System.out.println("Entrees");
-                    System.out.println("All entrees served with 2 sides");
-                    System.out.println();
-                    printMenu(menuEnt);
-                    System.out.println();
-                    System.out.println("Toppings");
-                    System.out.println();
-                    printMenu(menuTop);
-                    System.out.println();
-                    System.out.println("Sides");
-                    System.out.println();
-                    printMenu(menuSid);
-                    System.out.println();
-                    System.out.println("Sandwiches");
-                    System.out.println();
-                    printMenu(menuSan);
-                    System.out.println();
-                    System.out.println("Burgers");
-                    System.out.println();
-                    printMenu(menuBur);
-                    System.out.println();
-                    System.out.println("Beverages");
-                    System.out.println();
-                    printMenu(menuBev);
-                    System.out.println();
-
-
-                    //add items
-                }
-                else if (button == 2) {
-                    do {
-                        System.out.println("Please select which menu item type you'd like to add to");
-                        System.out.println("1) Appetizers");
-                        System.out.println("2) Salads");
-                        System.out.println("3) Entrees");
-                        System.out.println("4) Toppings");
-                        System.out.println("5) Sides");
-                        System.out.println("6) Sandwiches");
-                        System.out.println("7) Burgers");
-                        System.out.println("8) Beverages");
-                        System.out.println("9) Back");
-
-                        button = Integer.parseInt(scan.nextLine());
-
-                        if (button == 1){ //app are name, price and desc
-
-
-                        } else if (button == 2) { //salads are name, price and desc
-                            System.out.print("Please enter the name of the salad: ");
-                            foodName = scan.nextLine();
-                            System.out.print("Please enter the price of "+foodName+": $");
-                            price = Float.parseFloat(scan.nextLine());
-                            System.out.print("Please enter a description for "+foodName+": ");
-                            description = scan.nextLine();
-                            currentItem = new MenuItemR(foodName, price, description);
-                            menuSal.add(currentItem);
-                            System.out.println("Salad added");
-                        } else if (button == 3) { //entrees are name, price and desc
-                            System.out.print("Please enter the name of the Entree: ");
-                            foodName = scan.nextLine();
-                            System.out.print("Please enter the price of "+foodName+": $");
-                            price = Float.parseFloat(scan.nextLine());
-                            System.out.print("Please enter a description for "+foodName+": ");
-                            description = scan.nextLine();
-                            currentItem = new MenuItemR(foodName, price, description);
-                            menuEnt.add(currentItem);
-                            System.out.println("Entree added");
-                        } else if (button == 4) { //toppings are just name
-                            System.out.print("Please enter the name of the topping: ");
-                            foodName = scan.nextLine();
-                            menuTop.add(foodName);
-                            System.out.println("Topping added");
-                        } else if (button == 5) { //sides are name and price
-                            System.out.print("Please enter the name of the Side: ");
-                            foodName = scan.nextLine();
-                            System.out.print("Please enter the price of "+foodName+": $");
-                            price = Float.parseFloat(scan.nextLine());
-
-                            currentItem = new MenuItemR(foodName, price);
-                            menuSid.add(currentItem);
-                            System.out.println("Side added");
-                        } else if (button == 6) {//sadwitches name price and desc
-                            System.out.print("Please enter the name of the Sandwich: ");
-                            foodName = scan.nextLine();
-                            System.out.print("Please enter the price of "+foodName+": $");
-                            price = Float.parseFloat(scan.nextLine());
-                            System.out.print("Please enter a description for "+foodName+": ");
-                            description = scan.nextLine();
-                            currentItem = new MenuItemR(foodName, price, description);
-                            menuSan.add(currentItem);
-                            System.out.println("Sandwich added");
-                        } else if (button == 7) {// burgers are name, price and desc
-                            System.out.print("Please enter the name of the salad: ");
-                            foodName = scan.nextLine();
-                            System.out.print("Please enter the price of "+foodName+": $");
-                            price = Float.parseFloat(scan.nextLine());
-                            System.out.print("Please enter a description for "+foodName+": ");
-                            description = scan.nextLine();
-                            currentItem = new MenuItemR(foodName, price, description);
-                            menuBur.add(currentItem);
-                            System.out.println("Burger added");
-                        } else if (button == 8) {// beverages are name and price
-                            System.out.print("Please enter the name of the beverage: ");
-                            foodName = scan.nextLine();
-                            System.out.print("Please enter the price of "+foodName+": $");
-                            price = Float.parseFloat(scan.nextLine());
-                            currentItem = new MenuItemR(foodName, price);
-                            menuBev.add(currentItem);
-                            System.out.println("Beverage added");
-                        } else if (button == 9) {
-
-                        }else {
-                            System.out.println("Please enter a valid number");
-                        }
-                    }while (button != 9);
-
-
-                    //remove item
-                }
-                else if (button == 3) {
-                    System.out.println("Please select which menu item type you'd like to remove");
-                    System.out.println("1) Appetizers");
-                    System.out.println("2) Salads");
-                    System.out.println("3) Entrees");
-                    System.out.println("4) Toppings");
-                    System.out.println("5) Sides");
-                    System.out.println("6) Sandwiches");
-                    System.out.println("7) Burgers");
-                    System.out.println("8) Beverages");
-                    System.out.println("9) Back");
-
-                    button = Integer.parseInt(scan.next());
-
-                    if (button == 1){
-                        System.out.println("Appetizers");
-                        System.out.println();
-                        printMenu(menuApp);
-                        System.out.print("Please enter the index of the item to remove: ");
-                        index = Integer.parseInt(scan.nextLine());
-                        System.out.println(menuApp.get(index).getName()+" is now removed");
-                        menuApp.remove(index);
-
-                    } else if (button == 2) {
-                        System.out.println("Salads");
-                        System.out.println();
-                        printMenu(menuSal);
-                        System.out.print("Please enter the index of the item to remove: ");
-                        index = Integer.parseInt(scan.nextLine());
-                        System.out.println(menuSal.get(index).getName()+" is now removed");
-                        menuSal.remove(index);
-
-                    } else if (button == 3) {
-                        System.out.println("Entrees");
-                        System.out.println("All entrees served with 2 sides");
-                        System.out.println();
-                        printMenu(menuEnt);
-                        System.out.print("Please enter the index of the item to remove: ");
-                        index = Integer.parseInt(scan.nextLine());
-                        System.out.println(menuEnt.get(index).getName()+" is now removed");
-                        menuEnt.remove(index);
-
-                    } else if (button == 4) {
-                        System.out.println("Toppings");
-                        System.out.println();
-                        printMenu(menuTop);
-                        System.out.print("Please enter the index of the item to remove: ");
-                        index = Integer.parseInt(scan.nextLine());
-                        System.out.println(menuTop.get(index)+" is now removed");
-                        menuTop.remove(index);
-
-                    } else if (button == 5) {
-                        System.out.println("Sides");
-                        System.out.println();
-                        printMenu(menuSid);
-                        System.out.print("Please enter the index of the item to remove: ");
-                        index = Integer.parseInt(scan.nextLine());
-                        System.out.println(menuSid.get(index).getName()+" is now removed");
-                        menuSid.remove(index);
-
-                    } else if (button == 6) {
-                        System.out.println("Sandwiches");
-                        System.out.println();
-                        printMenu(menuSan);
-                        System.out.print("Please enter the index of the item to remove: ");
-                        index = Integer.parseInt(scan.nextLine());
-                        System.out.println(menuSan.get(index).getName()+" is now removed");
-                        menuSan.remove(index);
-
-                    } else if (button == 7) {
-                        System.out.println("Burgers");
-                        System.out.println();
-                        printMenu(menuBur);
-                        System.out.print("Please enter the index of the item to remove: ");
-                        index = Integer.parseInt(scan.nextLine());
-                        System.out.println(menuBur.get(index).getName()+" is now removed");
-                        menuBur.remove(index);
-
-                    } else if (button == 8) {
-                        System.out.println("Beverages");
-                        System.out.println();
-                        printMenu(menuBev);
-                        System.out.print("Please enter the index of the item to remove: ");
-                        index = Integer.parseInt(scan.nextLine());
-                        System.out.println(menuBev.get(index).getName()+" is now removed");
-                        menuBev.remove(index);
-                    } else if (button == 9) {
-
-                    }else {
-                        System.out.println("Please enter a valid number");
-                    }
-                }
-                //update items
-                else if (button == 4) {
-                    do {
-                        //pick a menu list to update
-                        System.out.println("Please select which menu item type you'd like to update");
-                        System.out.println("1) Appetizers");
-                        System.out.println("2) Salads");
-                        System.out.println("3) Entrees");
-                        System.out.println("4) Toppings");
-                        System.out.println("5) Sides");
-                        System.out.println("6) Sandwiches");
-                        System.out.println("7) Burgers");
-                        System.out.println("8) Beverages");
-                        System.out.println("9) Back");
-
-                        button = Integer.parseInt(scan.next());
-                        //update appetizers
-                        if (button == 1){
-                            System.out.println("Appetizers");
-                            System.out.println();
-                            printMenu(menuApp);
-                            System.out.print("Please enter the index of the item to update: ");
-                            index = Integer.parseInt(scan.nextLine());
-                            do {
-                                System.out.println(menuApp.get(index));
-                                System.out.println("Please select which field to update");
-                                System.out.println("1) Name");
-                                System.out.println("2) Price");
-                                System.out.println("3) Description");
-                                System.out.println("4) Back");
-                                button = Integer.parseInt(scan.nextLine());
-                                if (button == 1){
-                                    System.out.print("Please enter a new name: ");
-                                    foodName = scan.nextLine();
-                                    System.out.println(menuApp.get(index).getName() + " is now "+foodName);
-                                    menuApp.get(index).setName(foodName);
-
-                                } else if (button == 2) {
-                                    System.out.println("Price per item or price for multiple?");
-
-                                    button = Integer.parseInt(scan.nextLine());
-                                    if (button == 1){
-                                        System.out.print("Please enter a new price: ");
-                                        price = Float.parseFloat(scan.nextLine());
-                                        System.out.println(menuApp.get(index).getName() + "'s price is now "+price);
-                                        menuApp.get(index).setPrice(price);
-
-                                    } else if (button == 2) {
-                                        System.out.print("Please enter a new price: ");
-                                        String priceMult = (scan.nextLine());
-                                        System.out.println(menuApp.get(index).getName() + "'s price is now "+priceMult);
-                                        menuApp.get(index).setPriceMult(priceMult);
-                                    }
-                                } else if (button == 3) {
-                                    System.out.print("Please enter a new description" );
-                                    description = scan.nextLine();
-                                    System.out.println(menuApp.get(index).getName() + "'s description is now "+description);
-                                    menuApp.get(index).setDescription(description);
-                                }
-
-                            }while (button != 4);
-
-
-
-                        } else if (button == 2) {
-                            System.out.println("Salads");
-                            System.out.println();
-                            printMenu(menuSal);
-                            System.out.print("Please enter the index of the item to update: ");
-                            index = Integer.parseInt(scan.nextLine());
-                            do {
-                                System.out.println(menuSal.get(index));
-                                System.out.println("Please select which field to update");
-                                System.out.println("1) Name");
-                                System.out.println("2) Price");
-                                System.out.println("3) Description");
-                                System.out.println("4) Back");
-                                button = Integer.parseInt(scan.nextLine());
-                                if (button == 1){
-                                    System.out.print("Please enter a new name: ");
-                                    foodName = scan.nextLine();
-                                    System.out.println(menuSal.get(index).getName() + " is now "+foodName);
-                                    menuSal.get(index).setName(foodName);
-
-                                } else if (button == 2) {
-                                    System.out.println("Price per item or price for multiple?");
-
-                                    button = Integer.parseInt(scan.nextLine());
-                                    if (button == 1){
-                                        System.out.print("Please enter a new price: ");
-                                        price = Float.parseFloat(scan.nextLine());
-                                        System.out.println(menuSal.get(index).getName() + "'s price is now "+price);
-                                        menuSal.get(index).setPrice(price);
-
-                                    } else if (button == 2) {
-                                        System.out.print("Please enter a new price: ");
-                                        String priceMult = (scan.nextLine());
-                                        System.out.println(menuSal.get(index).getName() + "'s price is now "+priceMult);
-                                        menuSal.get(index).setPriceMult(priceMult);
-                                    }
-                                } else if (button == 3) {
-                                    System.out.print("Please enter a new description" );
-                                    description = scan.nextLine();
-                                    System.out.println(menuSal.get(index).getName() + "'s description is now "+description);
-                                    menuSal.get(index).setDescription(description);
-                                }
-
-                            }while (button != 4);
-
-                        } else if (button == 3) {
-                            System.out.println("Entrees");
-                            System.out.println("All entrees served with 2 sides");
-                            System.out.println();
-                            printMenu(menuEnt);
-                            System.out.print("Please enter the index of the item to update: ");
-                            index = Integer.parseInt(scan.nextLine());
-                            do {
-                                System.out.println(menuEnt.get(index));
-                                System.out.println("Please select which field to update");
-                                System.out.println("1) Name");
-                                System.out.println("2) Price");
-                                System.out.println("3) Description");
-                                System.out.println("4) Back");
-                                button = Integer.parseInt(scan.nextLine());
-                                if (button == 1){
-                                    System.out.print("Please enter a new name: ");
-                                    foodName = scan.nextLine();
-                                    System.out.println(menuEnt.get(index).getName() + " is now "+foodName);
-                                    menuEnt.get(index).setName(foodName);
-
-                                } else if (button == 2) {
-                                    System.out.println("Price per item or price for multiple?");
-
-                                    button = Integer.parseInt(scan.nextLine());
-                                    if (button == 1){
-                                        System.out.print("Please enter a new price: ");
-                                        price = Float.parseFloat(scan.nextLine());
-                                        System.out.println(menuEnt.get(index).getName() + "'s price is now "+price);
-                                        menuEnt.get(index).setPrice(price);
-
-                                    } else if (button == 2) {
-                                        System.out.print("Please enter a new price: ");
-                                        String priceMult = (scan.nextLine());
-                                        System.out.println(menuEnt.get(index).getName() + "'s price is now "+priceMult);
-                                        menuEnt.get(index).setPriceMult(priceMult);
-                                    }
-                                } else if (button == 3) {
-                                    System.out.print("Please enter a new description" );
-                                    description = scan.nextLine();
-                                    System.out.println(menuEnt.get(index).getName() + "'s description is now "+description);
-                                    menuEnt.get(index).setDescription(description);
-                                }
-
-                            }while (button != 4);
-
-                        } else if (button == 4) {
-                            System.out.println("Toppings");
-                            System.out.println();
-                            printMenu(menuTop);
-                            System.out.print("Please enter the index of the item to update: ");
-                            index = Integer.parseInt(scan.nextLine());
-                            do {
-                                System.out.println(menuTop.get(index));
-                                System.out.println("Please select which field to update");
-                                System.out.println("1) Name");
-                                System.out.println("2) Back");
-                                button = Integer.parseInt(scan.nextLine());
-                                if (button == 1){
-                                    System.out.print("Please enter a new name: ");
-                                    foodName = scan.nextLine();
-                                    System.out.println(menuTop.get(index)+ " is now "+foodName);
-                                    menuTop.set(index,foodName);
-
-                                } else if (button == 2) {}
-
-
-                            }while (button != 2);
-
-                        } else if (button == 5) {
-                            System.out.println("Sides");
-                            System.out.println();
-                            printMenu(menuSid);
-                            System.out.print("Please enter the index of the item to update: ");
-                            index = Integer.parseInt(scan.nextLine());
-                            do {
-                                System.out.println(menuSid.get(index));
-                                System.out.println("Please select which field to update");
-                                System.out.println("1) Name");
-                                System.out.println("2) Price");
-                                System.out.println("3) Description");
-                                System.out.println("4) Back");
-                                button = Integer.parseInt(scan.nextLine());
-                                if (button == 1){
-                                    System.out.print("Please enter a new name: ");
-                                    foodName = scan.nextLine();
-                                    System.out.println(menuSid.get(index).getName() + " is now "+foodName);
-                                    menuSid.get(index).setName(foodName);
-
-                                } else if (button == 2) {
-                                    System.out.println("Price per item or price for multiple?");
-
-                                    button = Integer.parseInt(scan.nextLine());
-                                    if (button == 1){
-                                        System.out.print("Please enter a new price: ");
-                                        price = Float.parseFloat(scan.nextLine());
-                                        System.out.println(menuSid.get(index).getName() + "'s price is now "+price);
-                                        menuSid.get(index).setPrice(price);
-
-                                    } else if (button == 2) {
-                                        System.out.print("Please enter a new price: ");
-                                        String priceMult = (scan.nextLine());
-                                        System.out.println(menuSid.get(index).getName() + "'s price is now "+priceMult);
-                                        menuSid.get(index).setPriceMult(priceMult);
-                                    }
-                                } else if (button == 3) {
-                                    System.out.print("Please enter a new description" );
-                                    description = scan.nextLine();
-                                    System.out.println(menuSid.get(index).getName() + "'s description is now "+description);
-                                    menuSid.get(index).setDescription(description);
-                                }
-
-                            }while (button != 4);;
-
-                        } else if (button == 6) {
-                            System.out.println("Sandwiches");
-                            System.out.println();
-                            printMenu(menuSan);
-                            System.out.print("Please enter the index of the item to update: ");
-                            index = Integer.parseInt(scan.nextLine());
-                            do {
-                                System.out.println(menuSan.get(index));
-                                System.out.println("Please select which field to update");
-                                System.out.println("1) Name");
-                                System.out.println("2) Price");
-                                System.out.println("3) Description");
-                                System.out.println("4) Back");
-                                button = Integer.parseInt(scan.nextLine());
-                                if (button == 1){
-                                    System.out.print("Please enter a new name: ");
-                                    foodName = scan.nextLine();
-                                    System.out.println(menuSan.get(index).getName() + " is now "+foodName);
-                                    menuSan.get(index).setName(foodName);
-
-                                } else if (button == 2) {
-                                    System.out.println("Price per item or price for multiple?");
-
-                                    button = Integer.parseInt(scan.nextLine());
-                                    if (button == 1){
-                                        System.out.print("Please enter a new price: ");
-                                        price = Float.parseFloat(scan.nextLine());
-                                        System.out.println(menuSan.get(index).getName() + "'s price is now "+price);
-                                        menuSan.get(index).setPrice(price);
-
-                                    } else if (button == 2) {
-                                        System.out.print("Please enter a new price: ");
-                                        String priceMult = (scan.nextLine());
-                                        System.out.println(menuSan.get(index).getName() + "'s price is now "+priceMult);
-                                        menuSan.get(index).setPriceMult(priceMult);
-                                    }
-                                } else if (button == 3) {
-                                    System.out.print("Please enter a new description" );
-                                    description = scan.nextLine();
-                                    System.out.println(menuSan.get(index).getName() + "'s description is now "+description);
-                                    menuSan.get(index).setDescription(description);
-                                }
-
-                            }while (button != 4);
-
-                        } else if (button == 7) {
-                            System.out.println("Burgers");
-                            System.out.println();
-                            printMenu(menuBur);
-                            System.out.print("Please enter the index of the item to update: ");
-                            index = Integer.parseInt(scan.nextLine());
-                            do {
-                                System.out.println(menuBur.get(index));
-                                System.out.println("Please select which field to update");
-                                System.out.println("1) Name");
-                                System.out.println("2) Price");
-                                System.out.println("3) Description");
-                                System.out.println("4) Back");
-                                button = Integer.parseInt(scan.nextLine());
-                                if (button == 1){
-                                    System.out.print("Please enter a new name: ");
-                                    foodName = scan.nextLine();
-                                    System.out.println(menuBur.get(index).getName() + " is now "+foodName);
-                                    menuBur.get(index).setName(foodName);
-
-                                } else if (button == 2) {
-                                    System.out.println("Price per item or price for multiple?");
-
-                                    button = Integer.parseInt(scan.nextLine());
-                                    if (button == 1){
-                                        System.out.print("Please enter a new price: ");
-                                        price = Float.parseFloat(scan.nextLine());
-                                        System.out.println(menuBur.get(index).getName() + "'s price is now "+price);
-                                        menuBur.get(index).setPrice(price);
-
-                                    } else if (button == 2) {
-                                        System.out.print("Please enter a new price: ");
-                                        String priceMult = (scan.nextLine());
-                                        System.out.println(menuBur.get(index).getName() + "'s price is now "+priceMult);
-                                        menuBur.get(index).setPriceMult(priceMult);
-                                    }
-                                } else if (button == 3) {
-                                    System.out.print("Please enter a new description" );
-                                    description = scan.nextLine();
-                                    System.out.println(menuBur.get(index).getName() + "'s description is now "+description);
-                                    menuBur.get(index).setDescription(description);
-                                }
-
-                            }while (button != 4);
-
-                        } else if (button == 8) {
-                            System.out.println("Beverages");
-                            System.out.println();
-                            printMenu(menuBev);
-                            System.out.print("Please enter the index of the item to update: ");
-                            index = Integer.parseInt(scan.nextLine());
-                            do {
-                                System.out.println(menuBev.get(index));
-                                System.out.println("Please select which field to update");
-                                System.out.println("1) Name");
-                                System.out.println("2) Price");
-                                System.out.println("3) Description");
-                                System.out.println("4) Back");
-                                button = Integer.parseInt(scan.nextLine());
-                                if (button == 1){
-                                    System.out.print("Please enter a new name: ");
-                                    foodName = scan.nextLine();
-                                    System.out.println(menuBev.get(index).getName() + " is now "+foodName);
-                                    menuBev.get(index).setName(foodName);
-
-                                } else if (button == 2) {
-                                    System.out.println("Price per item or price for multiple?");
-
-                                    button = Integer.parseInt(scan.nextLine());
-                                    if (button == 1){
-                                        System.out.print("Please enter a new price: ");
-                                        price = Float.parseFloat(scan.nextLine());
-                                        System.out.println(menuBev.get(index).getName() + "'s price is now "+price);
-                                        menuBev.get(index).setPrice(price);
-
-                                    } else if (button == 2) {
-                                        System.out.print("Please enter a new price: ");
-                                        String priceMult = (scan.nextLine());
-                                        System.out.println(menuBev.get(index).getName() + "'s price is now "+priceMult);
-                                        menuBev.get(index).setPriceMult(priceMult);
-                                    }
-                                } else if (button == 3) {
-                                    System.out.print("Please enter a new description" );
-                                    description = scan.nextLine();
-                                    System.out.println(menuBev.get(index).getName() + "'s description is now "+description);
-                                    menuBev.get(index).setDescription(description);
-                                }
-
-                            }while (button != 4);
-                        } else if (button == 9) {
-
-                        } else {
-                            System.out.println("Please enter a valid number");
-                        }
-                    }while (button != 9);
-                }
-
-
-            }catch (InputMismatchException e){
-                System.out.println("Error. Please enter a valid input");
-                button = -1;
-            }catch (NumberFormatException e){
-                System.out.println("Error. Please enter a valid input");
+            System.out.println("Please select which menu item type you'd like to add to");
+            System.out.println("1) Appetizers");
+            System.out.println("2) Salads");
+            System.out.println("3) Entrees");
+            System.out.println("4) Toppings");
+            System.out.println("5) Sides");
+            System.out.println("6) Sandwiches");
+            System.out.println("7) Burgers");
+            System.out.println("8) Beverages");
+            System.out.println("9) Back");
+
+            button = Integer.parseInt(scan.nextLine());
+
+            if (button == 1) { //app are name, price and desc
+                System.out.print("Please enter the name of the appetizer: ");
+                foodName = scan.nextLine();
+                System.out.print("Please enter the price of " + foodName + ": $");
+                price = Float.parseFloat(scan.nextLine());
+                System.out.print("Please enter a description for " + foodName + ": ");
+                description = scan.nextLine();
+                currentItem = new MenuItemR(foodName, price, description);
+                menuApp.add(currentItem);
+                System.out.println("Salad added");
+
+            } else if (button == 2) { //salads are name, price and desc
+                System.out.print("Please enter the name of the salad: ");
+                foodName = scan.nextLine();
+                System.out.print("Please enter the price of " + foodName + ": $");
+                price = Float.parseFloat(scan.nextLine());
+                System.out.print("Please enter a description for " + foodName + ": ");
+                description = scan.nextLine();
+                currentItem = new MenuItemR(foodName, price, description);
+                menuSal.add(currentItem);
+                System.out.println("Salad added");
+            } else if (button == 3) { //entrees are name, price and desc
+                System.out.print("Please enter the name of the Entree: ");
+                foodName = scan.nextLine();
+                System.out.print("Please enter the price of " + foodName + ": $");
+                price = Float.parseFloat(scan.nextLine());
+                System.out.print("Please enter a description for " + foodName + ": ");
+                description = scan.nextLine();
+                currentItem = new MenuItemR(foodName, price, description);
+                menuEnt.add(currentItem);
+                System.out.println("Entree added");
+            } else if (button == 4) { //toppings are just name
+                System.out.print("Please enter the name of the topping: ");
+                foodName = scan.nextLine();
+                menuTop.add(foodName);
+                System.out.println("Topping added");
+            } else if (button == 5) { //sides are name and price
+                System.out.print("Please enter the name of the Side: ");
+                foodName = scan.nextLine();
+                System.out.print("Please enter the price of " + foodName + ": $");
+                price = Float.parseFloat(scan.nextLine());
+
+                currentItem = new MenuItemR(foodName, price);
+                menuSid.add(currentItem);
+                System.out.println("Side added");
+            } else if (button == 6) {//sadwitches name price and desc
+                System.out.print("Please enter the name of the Sandwich: ");
+                foodName = scan.nextLine();
+                System.out.print("Please enter the price of " + foodName + ": $");
+                price = Float.parseFloat(scan.nextLine());
+                System.out.print("Please enter a description for " + foodName + ": ");
+                description = scan.nextLine();
+                currentItem = new MenuItemR(foodName, price, description);
+                menuSan.add(currentItem);
+                System.out.println("Sandwich added");
+            } else if (button == 7) {// burgers are name, price and desc
+                System.out.print("Please enter the name of the salad: ");
+                foodName = scan.nextLine();
+                System.out.print("Please enter the price of " + foodName + ": $");
+                price = Float.parseFloat(scan.nextLine());
+                System.out.print("Please enter a description for " + foodName + ": ");
+                description = scan.nextLine();
+                currentItem = new MenuItemR(foodName, price, description);
+                menuBur.add(currentItem);
+                System.out.println("Burger added");
+            } else if (button == 8) {// beverages are name and price
+                System.out.print("Please enter the name of the beverage: ");
+                foodName = scan.nextLine();
+                System.out.print("Please enter the price of " + foodName + ": $");
+                price = Float.parseFloat(scan.nextLine());
+                currentItem = new MenuItemR(foodName, price);
+                menuBev.add(currentItem);
+                System.out.println("Beverage added");
+            } else if (button == 9) {
+
+            } else {
+                System.out.println("Please enter a valid number");
             }
-            catch (Exception e){
-                System.out.println("Something went really wrong here");
-                System.out.println(e);
-            }
-        }while (button != 5);
-
-        System.out.println("Have a good day!");
+        } while (button != 9);
 
 
     }
+
+    public void removeItems() {
+        do {
+            System.out.println("Please select which menu item type you'd like to remove");
+            System.out.println("1) Appetizers");
+            System.out.println("2) Salads");
+            System.out.println("3) Entrees");
+            System.out.println("4) Toppings");
+            System.out.println("5) Sides");
+            System.out.println("6) Sandwiches");
+            System.out.println("7) Burgers");
+            System.out.println("8) Beverages");
+            System.out.println("9) Back");
+
+            button = Integer.parseInt(scan.next());
+
+            if (button == 1) {
+                System.out.println("Appetizers");
+                System.out.println();
+                printMenu(menuApp);
+                System.out.print("Please enter the index of the item to remove: ");
+                index = Integer.parseInt(scan.nextLine());
+                System.out.println(menuApp.get(index).getName() + " is now removed");
+                menuApp.remove(index);
+
+            } else if (button == 2) {
+                System.out.println("Salads");
+                System.out.println();
+                printMenu(menuSal);
+                System.out.print("Please enter the index of the item to remove: ");
+                index = Integer.parseInt(scan.nextLine());
+                System.out.println(menuSal.get(index).getName() + " is now removed");
+                menuSal.remove(index);
+
+            } else if (button == 3) {
+                System.out.println("Entrees");
+                System.out.println("All entrees served with 2 sides");
+                System.out.println();
+                printMenu(menuEnt);
+                System.out.print("Please enter the index of the item to remove: ");
+                index = Integer.parseInt(scan.nextLine());
+                System.out.println(menuEnt.get(index).getName() + " is now removed");
+                menuEnt.remove(index);
+
+            } else if (button == 4) {
+                System.out.println("Toppings");
+                System.out.println();
+                printMenu(menuTop);
+                System.out.print("Please enter the index of the item to remove: ");
+                index = Integer.parseInt(scan.nextLine());
+                System.out.println(menuTop.get(index) + " is now removed");
+                menuTop.remove(index);
+
+            } else if (button == 5) {
+                System.out.println("Sides");
+                System.out.println();
+                printMenu(menuSid);
+                System.out.print("Please enter the index of the item to remove: ");
+                index = Integer.parseInt(scan.nextLine());
+                System.out.println(menuSid.get(index).getName() + " is now removed");
+                menuSid.remove(index);
+
+            } else if (button == 6) {
+                System.out.println("Sandwiches");
+                System.out.println();
+                printMenu(menuSan);
+                System.out.print("Please enter the index of the item to remove: ");
+                index = Integer.parseInt(scan.nextLine());
+                System.out.println(menuSan.get(index).getName() + " is now removed");
+                menuSan.remove(index);
+
+            } else if (button == 7) {
+                System.out.println("Burgers");
+                System.out.println();
+                printMenu(menuBur);
+                System.out.print("Please enter the index of the item to remove: ");
+                index = Integer.parseInt(scan.nextLine());
+                System.out.println(menuBur.get(index).getName() + " is now removed");
+                menuBur.remove(index);
+
+            } else if (button == 8) {
+                System.out.println("Beverages");
+                System.out.println();
+                printMenu(menuBev);
+                System.out.print("Please enter the index of the item to remove: ");
+                index = Integer.parseInt(scan.nextLine());
+                System.out.println(menuBev.get(index).getName() + " is now removed");
+                menuBev.remove(index);
+            } else if (button == 9) {
+
+            } else {
+                System.out.println("Please enter a valid number");
+            }
+        } while (button != 9);
+
+    }
+
+    public void updateItems() {
+        do {
+            //pick a menu list to update
+            System.out.println("Please select which menu item type you'd like to update");
+            System.out.println("1) Appetizers");
+            System.out.println("2) Salads");
+            System.out.println("3) Entrees");
+            System.out.println("4) Toppings");
+            System.out.println("5) Sides");
+            System.out.println("6) Sandwiches");
+            System.out.println("7) Burgers");
+            System.out.println("8) Beverages");
+            System.out.println("9) Back");
+
+            button = Integer.parseInt(scan.next());
+            //update appetizers
+            if (button == 1) {
+                System.out.println("Appetizers");
+                System.out.println();
+                printMenu(menuApp);
+                System.out.print("Please enter the index of the item to update: ");
+                index = Integer.parseInt(scan.nextLine());
+                do {
+                    System.out.println(menuApp.get(index));
+                    System.out.println("Please select which field to update");
+                    System.out.println("1) Name");
+                    System.out.println("2) Price");
+                    System.out.println("3) Description");
+                    System.out.println("4) Back");
+                    button = Integer.parseInt(scan.nextLine());
+                    if (button == 1) {
+                        System.out.print("Please enter a new name: ");
+                        foodName = scan.nextLine();
+                        System.out.println(menuApp.get(index).getName() + " is now " + foodName);
+                        menuApp.get(index).setName(foodName);
+
+                    } else if (button == 2) {
+                        System.out.println("Price per item or price for multiple?");
+
+                        button = Integer.parseInt(scan.nextLine());
+                        if (button == 1) {
+                            System.out.print("Please enter a new price: ");
+                            price = Float.parseFloat(scan.nextLine());
+                            System.out.println(menuApp.get(index).getName() + "'s price is now " + price);
+                            menuApp.get(index).setPrice(price);
+
+                        } else if (button == 2) {
+                            System.out.print("Please enter a new price: ");
+                            String priceMult = (scan.nextLine());
+                            System.out.println(menuApp.get(index).getName() + "'s price is now " + priceMult);
+                            menuApp.get(index).setPriceMult(priceMult);
+                        }
+                    } else if (button == 3) {
+                        System.out.print("Please enter a new description");
+                        description = scan.nextLine();
+                        System.out.println(menuApp.get(index).getName() + "'s description is now " + description);
+                        menuApp.get(index).setDescription(description);
+                    }
+
+                } while (button != 4);
+
+
+            } else if (button == 2) {
+                System.out.println("Salads");
+                System.out.println();
+                printMenu(menuSal);
+                System.out.print("Please enter the index of the item to update: ");
+                index = Integer.parseInt(scan.nextLine());
+                do {
+                    System.out.println(menuSal.get(index));
+                    System.out.println("Please select which field to update");
+                    System.out.println("1) Name");
+                    System.out.println("2) Price");
+                    System.out.println("3) Description");
+                    System.out.println("4) Back");
+                    button = Integer.parseInt(scan.nextLine());
+                    if (button == 1) {
+                        System.out.print("Please enter a new name: ");
+                        foodName = scan.nextLine();
+                        System.out.println(menuSal.get(index).getName() + " is now " + foodName);
+                        menuSal.get(index).setName(foodName);
+
+                    } else if (button == 2) {
+                        System.out.println("Price per item or price for multiple?");
+
+                        button = Integer.parseInt(scan.nextLine());
+                        if (button == 1) {
+                            System.out.print("Please enter a new price: ");
+                            price = Float.parseFloat(scan.nextLine());
+                            System.out.println(menuSal.get(index).getName() + "'s price is now " + price);
+                            menuSal.get(index).setPrice(price);
+
+                        } else if (button == 2) {
+                            System.out.print("Please enter a new price: ");
+                            String priceMult = (scan.nextLine());
+                            System.out.println(menuSal.get(index).getName() + "'s price is now " + priceMult);
+                            menuSal.get(index).setPriceMult(priceMult);
+                        }
+                    } else if (button == 3) {
+                        System.out.print("Please enter a new description");
+                        description = scan.nextLine();
+                        System.out.println(menuSal.get(index).getName() + "'s description is now " + description);
+                        menuSal.get(index).setDescription(description);
+                    }
+
+                } while (button != 4);
+
+            } else if (button == 3) {
+                System.out.println("Entrees");
+                System.out.println("All entrees served with 2 sides");
+                System.out.println();
+                printMenu(menuEnt);
+                System.out.print("Please enter the index of the item to update: ");
+                index = Integer.parseInt(scan.nextLine());
+                do {
+                    System.out.println(menuEnt.get(index));
+                    System.out.println("Please select which field to update");
+                    System.out.println("1) Name");
+                    System.out.println("2) Price");
+                    System.out.println("3) Description");
+                    System.out.println("4) Back");
+                    button = Integer.parseInt(scan.nextLine());
+                    if (button == 1) {
+                        System.out.print("Please enter a new name: ");
+                        foodName = scan.nextLine();
+                        System.out.println(menuEnt.get(index).getName() + " is now " + foodName);
+                        menuEnt.get(index).setName(foodName);
+
+                    } else if (button == 2) {
+                        System.out.println("Price per item or price for multiple?");
+
+                        button = Integer.parseInt(scan.nextLine());
+                        if (button == 1) {
+                            System.out.print("Please enter a new price: ");
+                            price = Float.parseFloat(scan.nextLine());
+                            System.out.println(menuEnt.get(index).getName() + "'s price is now " + price);
+                            menuEnt.get(index).setPrice(price);
+
+                        } else if (button == 2) {
+                            System.out.print("Please enter a new price: ");
+                            String priceMult = (scan.nextLine());
+                            System.out.println(menuEnt.get(index).getName() + "'s price is now " + priceMult);
+                            menuEnt.get(index).setPriceMult(priceMult);
+                        }
+                    } else if (button == 3) {
+                        System.out.print("Please enter a new description");
+                        description = scan.nextLine();
+                        System.out.println(menuEnt.get(index).getName() + "'s description is now " + description);
+                        menuEnt.get(index).setDescription(description);
+                    }
+
+                } while (button != 4);
+
+            } else if (button == 4) {
+                System.out.println("Toppings");
+                System.out.println();
+                printMenu(menuTop);
+                System.out.print("Please enter the index of the item to update: ");
+                index = Integer.parseInt(scan.nextLine());
+                do {
+                    System.out.println(menuTop.get(index));
+                    System.out.println("Please select which field to update");
+                    System.out.println("1) Name");
+                    System.out.println("2) Back");
+                    button = Integer.parseInt(scan.nextLine());
+                    if (button == 1) {
+                        System.out.print("Please enter a new name: ");
+                        foodName = scan.nextLine();
+                        System.out.println(menuTop.get(index) + " is now " + foodName);
+                        menuTop.set(index, foodName);
+
+                    } else if (button == 2) {
+                    }
+
+
+                } while (button != 2);
+
+            } else if (button == 5) {
+                System.out.println("Sides");
+                System.out.println();
+                printMenu(menuSid);
+                System.out.print("Please enter the index of the item to update: ");
+                index = Integer.parseInt(scan.nextLine());
+                do {
+                    System.out.println(menuSid.get(index));
+                    System.out.println("Please select which field to update");
+                    System.out.println("1) Name");
+                    System.out.println("2) Price");
+                    System.out.println("3) Description");
+                    System.out.println("4) Back");
+                    button = Integer.parseInt(scan.nextLine());
+                    if (button == 1) {
+                        System.out.print("Please enter a new name: ");
+                        foodName = scan.nextLine();
+                        System.out.println(menuSid.get(index).getName() + " is now " + foodName);
+                        menuSid.get(index).setName(foodName);
+
+                    } else if (button == 2) {
+                        System.out.println("Price per item or price for multiple?");
+
+                        button = Integer.parseInt(scan.nextLine());
+                        if (button == 1) {
+                            System.out.print("Please enter a new price: ");
+                            price = Float.parseFloat(scan.nextLine());
+                            System.out.println(menuSid.get(index).getName() + "'s price is now " + price);
+                            menuSid.get(index).setPrice(price);
+
+                        } else if (button == 2) {
+                            System.out.print("Please enter a new price: ");
+                            String priceMult = (scan.nextLine());
+                            System.out.println(menuSid.get(index).getName() + "'s price is now " + priceMult);
+                            menuSid.get(index).setPriceMult(priceMult);
+                        }
+                    } else if (button == 3) {
+                        System.out.print("Please enter a new description");
+                        description = scan.nextLine();
+                        System.out.println(menuSid.get(index).getName() + "'s description is now " + description);
+                        menuSid.get(index).setDescription(description);
+                    }
+
+                } while (button != 4);
+                ;
+
+            } else if (button == 6) {
+                System.out.println("Sandwiches");
+                System.out.println();
+                printMenu(menuSan);
+                System.out.print("Please enter the index of the item to update: ");
+                index = Integer.parseInt(scan.nextLine());
+                do {
+                    System.out.println(menuSan.get(index));
+                    System.out.println("Please select which field to update");
+                    System.out.println("1) Name");
+                    System.out.println("2) Price");
+                    System.out.println("3) Description");
+                    System.out.println("4) Back");
+                    button = Integer.parseInt(scan.nextLine());
+                    if (button == 1) {
+                        System.out.print("Please enter a new name: ");
+                        foodName = scan.nextLine();
+                        System.out.println(menuSan.get(index).getName() + " is now " + foodName);
+                        menuSan.get(index).setName(foodName);
+
+                    } else if (button == 2) {
+                        System.out.println("Price per item or price for multiple?");
+
+                        button = Integer.parseInt(scan.nextLine());
+                        if (button == 1) {
+                            System.out.print("Please enter a new price: ");
+                            price = Float.parseFloat(scan.nextLine());
+                            System.out.println(menuSan.get(index).getName() + "'s price is now " + price);
+                            menuSan.get(index).setPrice(price);
+
+                        } else if (button == 2) {
+                            System.out.print("Please enter a new price: ");
+                            String priceMult = (scan.nextLine());
+                            System.out.println(menuSan.get(index).getName() + "'s price is now " + priceMult);
+                            menuSan.get(index).setPriceMult(priceMult);
+                        }
+                    } else if (button == 3) {
+                        System.out.print("Please enter a new description");
+                        description = scan.nextLine();
+                        System.out.println(menuSan.get(index).getName() + "'s description is now " + description);
+                        menuSan.get(index).setDescription(description);
+                    }
+
+                } while (button != 4);
+
+            } else if (button == 7) {
+                System.out.println("Burgers");
+                System.out.println();
+                printMenu(menuBur);
+                System.out.print("Please enter the index of the item to update: ");
+                index = Integer.parseInt(scan.nextLine());
+                do {
+                    System.out.println(menuBur.get(index));
+                    System.out.println("Please select which field to update");
+                    System.out.println("1) Name");
+                    System.out.println("2) Price");
+                    System.out.println("3) Description");
+                    System.out.println("4) Back");
+                    button = Integer.parseInt(scan.nextLine());
+                    if (button == 1) {
+                        System.out.print("Please enter a new name: ");
+                        foodName = scan.nextLine();
+                        System.out.println(menuBur.get(index).getName() + " is now " + foodName);
+                        menuBur.get(index).setName(foodName);
+
+                    } else if (button == 2) {
+                        System.out.println("Price per item or price for multiple?");
+
+                        button = Integer.parseInt(scan.nextLine());
+                        if (button == 1) {
+                            System.out.print("Please enter a new price: ");
+                            price = Float.parseFloat(scan.nextLine());
+                            System.out.println(menuBur.get(index).getName() + "'s price is now " + price);
+                            menuBur.get(index).setPrice(price);
+
+                        } else if (button == 2) {
+                            System.out.print("Please enter a new price: ");
+                            String priceMult = (scan.nextLine());
+                            System.out.println(menuBur.get(index).getName() + "'s price is now " + priceMult);
+                            menuBur.get(index).setPriceMult(priceMult);
+                        }
+                    } else if (button == 3) {
+                        System.out.print("Please enter a new description");
+                        description = scan.nextLine();
+                        System.out.println(menuBur.get(index).getName() + "'s description is now " + description);
+                        menuBur.get(index).setDescription(description);
+                    }
+
+                } while (button != 4);
+
+            } else if (button == 8) {
+                System.out.println("Beverages");
+                System.out.println();
+                printMenu(menuBev);
+                System.out.print("Please enter the index of the item to update: ");
+                index = Integer.parseInt(scan.nextLine());
+                do {
+                    System.out.println(menuBev.get(index));
+                    System.out.println("Please select which field to update");
+                    System.out.println("1) Name");
+                    System.out.println("2) Price");
+                    System.out.println("3) Description");
+                    System.out.println("4) Back");
+                    button = Integer.parseInt(scan.nextLine());
+                    if (button == 1) {
+                        System.out.print("Please enter a new name: ");
+                        foodName = scan.nextLine();
+                        System.out.println(menuBev.get(index).getName() + " is now " + foodName);
+                        menuBev.get(index).setName(foodName);
+
+                    } else if (button == 2) {
+                        System.out.println("Price per item or price for multiple?");
+
+                        button = Integer.parseInt(scan.nextLine());
+                        if (button == 1) {
+                            System.out.print("Please enter a new price: ");
+                            price = Float.parseFloat(scan.nextLine());
+                            System.out.println(menuBev.get(index).getName() + "'s price is now " + price);
+                            menuBev.get(index).setPrice(price);
+
+                        } else if (button == 2) {
+                            System.out.print("Please enter a new price: ");
+                            String priceMult = (scan.nextLine());
+                            System.out.println(menuBev.get(index).getName() + "'s price is now " + priceMult);
+                            menuBev.get(index).setPriceMult(priceMult);
+                        }
+                    } else if (button == 3) {
+                        System.out.print("Please enter a new description");
+                        description = scan.nextLine();
+                        System.out.println(menuBev.get(index).getName() + "'s description is now " + description);
+                        menuBev.get(index).setDescription(description);
+                    }
+
+                } while (button != 4);
+            } else if (button == 9) {
+
+            } else {
+                System.out.println("Please enter a valid number");
+            }
+        } while (button != 9);
+    }
+
+
+    public <E> Object getItemForOrder() {
+
+        do {
+            //pick a menu list to update
+            System.out.println("Please select which menu item type you'd like to update");
+            System.out.println("1) Appetizers");
+            System.out.println("2) Salads");
+            System.out.println("3) Entrees");
+            System.out.println("4) Toppings");
+            System.out.println("5) Sides");
+            System.out.println("6) Sandwiches");
+            System.out.println("7) Burgers");
+            System.out.println("8) Beverages");
+
+
+            button = Integer.parseInt(scan.next());
+
+
+            if (button == 1) {
+                System.out.println("Appetizers");
+                System.out.println();
+                printMenu(menuApp);
+                System.out.print("Please enter the index of the item to order: ");
+                index = Integer.parseInt(scan.nextLine());
+                return menuApp.get(index);
+
+            } else if (button == 2) {
+                System.out.println("Salads");
+                System.out.println();
+                printMenu(menuSal);
+                System.out.print("Please enter the index of the item to order: ");
+                index = Integer.parseInt(scan.nextLine());
+                return menuSal.get(index);
+
+            } else if (button == 3) {
+                System.out.println("Entrees");
+                System.out.println("All entrees served with 2 sides");
+                System.out.println();
+                printMenu(menuEnt);
+                System.out.print("Please enter the index of the item to order: ");
+                index = Integer.parseInt(scan.nextLine());
+                return menuEnt.get(index);
+
+            } else if (button == 4) {
+                System.out.println("Toppings");
+                System.out.println();
+                printMenu(menuTop);
+                System.out.print("Please enter the index of the item to order: ");
+                index = Integer.parseInt(scan.nextLine());
+                return menuTop.get(index);
+
+            } else if (button == 5) {
+                System.out.println("Sides");
+                System.out.println();
+                printMenu(menuSid);
+                System.out.print("Please enter the index of the item to order: ");
+                index = Integer.parseInt(scan.nextLine());
+                return menuSid.get(index);
+
+            } else if (button == 6) {
+                System.out.println("Sandwiches");
+                System.out.println();
+                printMenu(menuSan);
+                System.out.print("Please enter the index of the item to order: ");
+                index = Integer.parseInt(scan.nextLine());
+                return menuSan.get(index);
+
+            } else if (button == 7) {
+                System.out.println("Burgers");
+                System.out.println();
+                printMenu(menuBur);
+                System.out.print("Please enter the index of the item to order: ");
+                index = Integer.parseInt(scan.nextLine());
+                return menuBur.get(index);
+
+            } else if (button == 8) {
+                System.out.println("Beverages");
+                System.out.println();
+                printMenu(menuBev);
+                System.out.print("Please enter the index of the item to order: ");
+                index = Integer.parseInt(scan.nextLine());
+                return menuBev.get(index);
+
+
+            }
+
+        } while (true);
+        
+
+    }
+
+
 }
+

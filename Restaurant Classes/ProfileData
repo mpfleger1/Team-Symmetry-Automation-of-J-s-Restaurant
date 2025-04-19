@@ -1,0 +1,39 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class ProfileD {
+    public String role;
+    public int ID = 100000;
+    public String fname;
+    public String lname;
+    public int dob;
+    public String password;
+    public String table;
+    List<Integer> tableAssignments = new ArrayList<>();
+
+
+    public ProfileD(String role, int ID, String fname, String lname, int dob, String password){
+        this.role = role;
+        this.ID = ID;
+        this.fname = fname;
+        this.lname = lname;
+        this.dob = dob;
+        this.password = password;
+    }
+
+    public ProfileD(String role, int ID, String fname, String lname, int dob, String password, String table){
+        this.role = role;
+        this.ID = ID;
+        this.fname = fname;
+        this.lname = lname;
+        this.dob = dob;
+        this.password = password;
+        this.table = table;
+    }
+
+    @Override
+    public String toString(){
+        return "Role: " + role + ", ID: " + ID + ", First Name: " + fname + " Last Name: " + lname + ", DOB: " + dob + ", Password: " + password + (table != null ? ", Table: " + table : "");
+    }
+
+}

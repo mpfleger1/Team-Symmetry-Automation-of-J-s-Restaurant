@@ -1,0 +1,66 @@
+import java.util.Scanner;
+public class Main {
+    // after login, presented with options to create a profile, modify profiles, track employee activities, Authorize (waiter activities)
+    // rearrange table layout (adding seats to a table, joining 2 or more tables to compensate large tables
+    // file for employee profiles in a file
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Profile create = new Profile();
+        Tracker tracker = new Tracker(create);
+        waiterAuthorization authorize = new waiterAuthorization(create.getProfiles());
+        Layout rearrange = new Layout();
+        // BlueRayCollection collection = new BlueRayCollection();
+        //after login
+
+        boolean runs = true;
+
+        while(runs) {
+            System.out.println("1. Create Profile");
+            System.out.println("2. Modify Profile");
+            System.out.println("3. Track Employee Activity");
+            System.out.println("4. Authorize Waiter Activity");
+            System.out.println("5. Rearrange Layout");
+            System.out.println("6. Log Out");
+            int action = sc.nextInt();
+
+            switch (action) {
+                case 1:
+                    create.action();
+                    break;
+
+                case 2:
+                    System.out.println("Type the name of the profile you'd like to modify: ");
+                    String name = sc.next();
+                    create.modify(name);
+                    break;
+
+                case 3:
+                    tracker.track();
+                    break;
+
+                case 4:
+                    // directed to see waiter activity
+                    authorize.authorize();
+
+                    break;
+
+                case 5:
+                    rearrange.LayoutMain();
+                    break;
+
+                case 6:
+                    System.out.println("Logging out now");
+                    runs = false;
+                    break;
+
+                default:
+                    System.out.println("Invalid option");
+
+
+            }
+        }
+        sc.close();
+
+    }
+
+}

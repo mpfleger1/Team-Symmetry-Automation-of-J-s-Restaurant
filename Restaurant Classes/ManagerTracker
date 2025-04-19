@@ -1,0 +1,23 @@
+import java.util.List;
+
+public class Tracker {
+
+    Profile profile1;
+    List<ProfileD> profiles;
+
+    public Tracker(Profile profile1){
+        this.profile1 = profile1;
+    }
+    public void track() {
+        List<ProfileD> profiles = profile1.getProfiles();
+        if (profiles.isEmpty()){
+            System.out.println("No profile activity to display");
+            return;
+        }
+
+        System.out.println("Displaying Employee Activity: ");
+            for (ProfileD profile : profiles) {
+                System.out.println(profile);
+            }
+        }
+    }
